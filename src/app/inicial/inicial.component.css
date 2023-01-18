@@ -1,0 +1,9 @@
+.alinhar {
+    display: block;
+    margin-left: auto;
+    margin-right: auto
+}
+
+.color {
+    background-color: yellow;
+}

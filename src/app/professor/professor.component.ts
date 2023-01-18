@@ -12,4 +12,8 @@ export class ProfessorComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  listar(): void {
+    console.log("...")
+  }
+
 }

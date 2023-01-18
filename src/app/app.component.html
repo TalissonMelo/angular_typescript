@@ -1,30 +1,39 @@
-<nav class="navbar navbar-dark bg-primary">
-    <div class="container justify-content-center">
-        <a class="navbar-brand" [routerLink]="['/']">Aplicação Monolítica <strong>My Hero Academy</strong></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="nav-link" [routerLink]="['/inicial']"><strong>Inicial</strong></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" [routerLink]="['/escolas']"><strong>Escolas</strong></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" [routerLink]="['/professores']"><strong>Professores</strong></a>
-                </li>
-            </ul>
-        </div>
+<div class="row">
+    <div class="col-sm p-0">
+        <nav class="navbar navbar-dark bg-primary">
+            <div class="container justify-content-center">
+                <a class="navbar-brand" [routerLink]="['/']">Aplicação Monolítica <strong>My Hero Academia</strong></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" [routerLink]="['/inicial']"><strong>Inicial</strong></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" [routerLink]="['/escolas']"><strong>Escolas</strong></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" [routerLink]="['/professores']"><strong>Professores</strong></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
     </div>
-</nav>
+</div>
 <router-outlet></router-outlet>
-<footer class="col-sm-12 footer navbar-fixed-bottom color">
-    <div class="row justify-content-center">
-        <a class="mr-2" href="https://www.linkedin.com/in/talisson-rodrigues/" target="_blank">LinkedIn</a>
-        <a class="mr-2" href="https://imepac.edu.br/" target="_blank">Faculdade</a>
-        <a class="mr-2" href="https://github.com/TalissonMelo" target="_blank">&copy; 2023 - Talisson Melo Rodrigues</a>
+<div class="row">
+    <div class="col-sm-12">
+        <footer class="col-sm-12 footer navbar-fixed-bottom color">
+            <div class="row justify-content-center">
+                <a class="mr-2" href="https://www.linkedin.com/in/talisson-rodrigues/" target="_blank">LinkedIn</a>
+                <a class="mr-2" href="https://imepac.edu.br/" target="_blank">Faculdade</a>
+                <a class="mr-2" href="https://github.com/TalissonMelo" target="_blank">&copy; 2023 - Talisson Melo Rodrigues</a>
+            </div>
+        </footer>
     </div>
-</footer>
+</div>

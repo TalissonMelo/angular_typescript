@@ -12,4 +12,8 @@ export class EscolaComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  listar(): void {
+    console.log("listar");
+  }
+
 }

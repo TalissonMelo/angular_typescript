@@ -1,3 +1,9 @@
 <div class="container">
-    <h1>Escolas</h1>
+    <nav class="nav nav-pills nav-fill">
+        <div class="input-group  justify-content-between pt-2">
+            <h4>Escolas</h4>
+            <button type="button" class="btn btn-primary mr-2" (click)="listar()"><i class="fas fa-table"></i> Listar</button>
+            <button type="button" class="btn btn-success" [routerLink]="['/escolasfrm']"><i class="fa fa-save"></i> Cadastrar</button>
+        </div>
+    </nav>
 </div>
