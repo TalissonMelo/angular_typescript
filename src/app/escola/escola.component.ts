@@ -12,6 +12,10 @@ export class EscolaComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  salvar(): void {
+    console.log("salvar");
+  }
+
   listar(): void {
     console.log("listar");
   }

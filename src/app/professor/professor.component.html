@@ -2,7 +2,65 @@
     <nav class="nav nav-pills nav-fill">
         <div class="input-group  justify-content-between pt-2">
             <h4>Professores</h4>
-            <button type="button" class="btn btn-success" [routerLink]="['/professoresFrm']"><i class="fa fa-save"></i> Cadastrar</button>
+            <button type="button" class="btn btn-success" [routerLink]="['/']"><i class="fa fa-save"></i> Cadastrar</button>
         </div>
     </nav>
+    <form class="mt-1">
+        <div class="row">
+            <div class="col-sm-2">
+                <label for="nome">Número</label>
+                <input type="number" class="form-control" id="numero" name="numero">
+            </div>
+            <div class="col-sm-10">
+                <label for="nome">Nome</label>
+                <input type="text" class="form-control" id="nome" placeholder="Digite o nome do professor" name="nome">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <label for="nome">Herói</label>
+                <input type="text" class="form-control" id="nomeHeroi" placeholder="Digite o nome do Herói" name="nomeHeroi">
+            </div>
+            <div class="col-sm-6">
+                <label for="Estado">Escola</label>
+                <select class="form-control">
+                    <option value="">Selecione...</option>
+                    <option>ESCOLAS</option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <label for="nome">Individualidade</label>
+                <input type="text" class="form-control" id="individualidade" name="individualidade">
+            </div>
+        </div>
+        <div class="row pt-1">
+            <div class="col-sm-12">
+                <button type="button" class="btn btn-primary float-right" (click)="listar()"><i class="fas fa-table"></i> Listar</button>
+            </div>
+        </div>
+    </form>
+    <table class="table mt-1">
+        <thead>
+          <tr class="row">
+            <th class="col-xs-1 col-sm-1 col-md-1 col-lg-1">Número</th>
+            <th class="col-xs-3 col-sm-3 col-md-3 col-lg-3">Nome</th>
+            <th class="col-xs-3 col-sm-3 col-md-3 col-lg-3">Herói</th>
+            <th class="col-xs-3 col-sm-3 col-md-3 col-lg-3">Escola</th>
+            <th class="col-xs-1 col-sm-1 col-md-1 col-lg-1">Editar</th>
+            <th class="col-xs-1 col-sm-1 col-md-1 col-lg-1">Deletar</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="row">
+            <td class="col-xs-1 col-sm-1 col-md-1 col-lg-1">1</td>
+            <td class="col-xs-3 col-sm-3 col-md-3 col-lg-3">Toshinori</td>
+            <td class="col-xs-3 col-sm-3 col-md-3 col-lg-3">All Might</td>
+            <td class="col-xs-3 col-sm-3 col-md-3 col-lg-3">U.A</td>
+            <td class="col-xs-1 col-sm-1 col-md-1 col-lg-1"><button class="btn btn-warning"><i class="fas fa-edit"></i></button></td>
+            <td class="col-xs-1 col-sm-1 col-md-1 col-lg-1"><button class="btn btn-danger"  data-toggle="modal" ><i class="fas fa-trash"></i></button></td>
+          </tr>
+        </tbody>
+      </table>
 </div>

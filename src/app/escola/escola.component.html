@@ -1,9 +1,28 @@
 <div class="container">
     <nav class="nav nav-pills nav-fill">
         <div class="input-group  justify-content-between pt-2">
-            <h4>Escolas</h4>
-            <button type="button" class="btn btn-primary mr-2" (click)="listar()"><i class="fas fa-table"></i> Listar</button>
-            <button type="button" class="btn btn-success" [routerLink]="['/escolasfrm']"><i class="fa fa-save"></i> Cadastrar</button>
+            <h4 class="mr-2 ">Escolas</h4>
+            <input type="text" class="form-control col-sm-8" id="nome" placeholder="Digite o nome da escola para busca parcial"  name="nome">
+            <div class="row">
+                <button type="button" class="btn btn-primary mr-2" (click)="listar()"><i class="fas fa-table"></i> Listar</button>
+                <button type="button" class="btn btn-success" [routerLink]="['/']"><i class="fa fa-save"></i> Cadastrar</button>
+            </div>
         </div>
     </nav>
+    <table class="table m-3">
+        <thead>
+            <tr class="row">
+                <th class="col-xs-10 col-sm-10 col-md-10 col-lg-10">Escola</th>
+                <th class="col-xs-1 col-sm-1 col-md-1 col-lg-1">Editar</th>
+                <th class="col-xs-1 col-sm-1 col-md-1 col-lg-1">Deletar</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="row">
+                <td class="col-xs-10 col-sm-10 col-md-10 col-lg-10">U.A</td>
+                <td class="col-xs-1 col-sm-1 col-md-1 col-lg-1"><button class="btn btn-warning"><i class="fas fa-edit"></i></button></td>
+                <td class="col-xs-1 col-sm-1 col-md-1 col-lg-1"><button class="btn btn-danger" data-toggle="modal" data-target="#modalDelecao"><i class="fas fa-trash"></i></button></td>
+            </tr>
+        </tbody>
+    </table>
 </div>
