@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ProfessorFormularioComponent } from './professor-formulario/professor-formulario.component';
 import { ProfessorComponent } from './professor.component';
 
 const routes: Routes = [
-  {
-    path: 'professores', component: ProfessorComponent
-  },
+  { path: 'professor', component: ProfessorComponent},
+  { path: "professor/formulario", component: ProfessorFormularioComponent },
+  { path: "professor/formulario/:id", component: ProfessorFormularioComponent },
 ];
 
 @NgModule({
