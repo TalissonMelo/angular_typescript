@@ -5,11 +5,11 @@
     <form class="mt-1">
         <div class="form-group">
           <label for="nome">Nome</label>
-          <input type="text" class="form-control" id="nome" placeholder="Digite o nome da escola"  name="nome">
+          <input type="text" class="form-control" id="nome" placeholder="Digite o nome da escola" [(ngModel)]="escola.nome"  name="nome">
         </div>
         <div class="row justify-content-between m-1">
             <button  *ngIf="false" type="submit" class="btn btn-success"><i class="fa fa-save"></i> Atualizar</button>
-            <button  type="submit" class="btn btn-success"><i class="fa fa-save"></i> Cadastrar</button>
+            <button  type="submit" class="btn btn-success" (click)="salvar()"><i class="fa fa-save"></i> Cadastrar</button>
             <button type="button" class="btn btn-dark ml-2" [routerLink]="['/escola']">Escolas</button>
         </div>
     </form>
