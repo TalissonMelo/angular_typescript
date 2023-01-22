@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Professor } from '../modelo/professor';
+import { ProfessorServico } from '../servico/professor.servico';
 
 @Component({
   selector: 'app-professor',
@@ -6,14 +8,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./professor.component.css']
 })
 export class ProfessorComponent implements OnInit {
+  public professores: Professor[] = [];
 
-  constructor() { }
+  constructor(private servico: ProfessorServico) { }
 
   ngOnInit(): void {
   }
 
   listar(): void {
-    console.log("...")
+    this.servico.listar().subscribe((res) => {
+      this.professores = res.content;
+    })
   }
 
 }

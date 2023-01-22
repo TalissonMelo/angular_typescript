@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Escola } from 'src/app/modelo/escola';
+import { EscolaServico } from 'src/app/servico/escola.servico';
 
 @Component({
   selector: 'app-escola-formulario',
@@ -12,19 +13,24 @@ export class EscolaFormularioComponent implements OnInit {
   public escola: Escola = new Escola();
   public validacao: boolean = false;
 
-  constructor(private activatedRoute: ActivatedRoute) {
+  constructor(private activatedRoute: ActivatedRoute, private servico: EscolaServico) {
   }
 
   ngOnInit(): void {
     let params: Observable<Params> = this.activatedRoute.params;
     params.subscribe(url => {
-      console.log(url['id']);
+      this.listar(url['id']);
     });
+  }
+
+  listar(id: number): void {
+    this.servico.listarPorId(id).subscribe((res) => {
+      this.escola = res;
+    })
   }
 
   salvar(): void {
     if (this.ehValidoSalvar()) {
-      console.log(this.escola)
       this.validacao = true;
     }
   }

@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { ProfessorFormularioComponent } from './professor-formulario/professor-formulario.component';
 import { ProfessorRoutingModule } from './professor-routing.module';
 import { ProfessorComponent } from './professor.component';
@@ -11,7 +12,8 @@ import { ProfessorComponent } from './professor.component';
   ],
   imports: [
     CommonModule, 
-    ProfessorRoutingModule
+    ProfessorRoutingModule, 
+    FormsModule
   ]
 })
 export class ProfessorModule { }

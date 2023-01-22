@@ -14,4 +14,12 @@ export class EscolaServico {
   listar(): Observable<Escola[]> {
     return this.http.get<Escola[]>(`${environment.uri}/escolas`);
   }
+
+  listarPorNome(nome: string): Observable<Escola[]> {
+    return this.http.get<Escola[]>(`${environment.uri}/escolas/nomes?nome=${nome}`);
+  }
+
+  listarPorId(id: number): Observable<Escola> {
+    return this.http.get<Escola>(`${environment.uri}/escolas/${id}`);
+  }
 }
