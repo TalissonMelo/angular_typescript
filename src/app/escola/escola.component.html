@@ -1,4 +1,5 @@
 <div class="container">
+    <delecao [objeto]="escola" (deletar)="deletar($event)"></delecao>
     <nav class="nav nav-pills nav-fill">
         <div class="input-group  justify-content-between pt-2">
             <h4 class="mr-2 ">Escolas</h4>
@@ -21,7 +22,7 @@
             <tr class="row" *ngFor="let escola of escolas">
                 <td class="col-xs-10 col-sm-10 col-md-10 col-lg-10">{{ escola.nome }}</td>
                 <td class="col-xs-1 col-sm-1 col-md-1 col-lg-1" routerLink="/escola/formulario/{{escola.id}}"><button class="btn btn-warning"><i class="fas fa-edit"></i></button></td>
-                <td class="col-xs-1 col-sm-1 col-md-1 col-lg-1"><button class="btn btn-danger" data-toggle="modal" data-target="#modalDelecao"><i class="fas fa-trash"></i></button></td>
+                <td class="col-xs-1 col-sm-1 col-md-1 col-lg-1"><button class="btn btn-danger" data-toggle="modal" data-target="#modalDelecao" (click)="preparaDelecao(escola)"><i class="fas fa-trash"></i></button></td>
             </tr>
         </tbody>
     </table>

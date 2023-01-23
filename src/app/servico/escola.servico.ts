@@ -22,4 +22,8 @@ export class EscolaServico {
   listarPorId(id: number): Observable<Escola> {
     return this.http.get<Escola>(`${environment.uri}/escolas/${id}`);
   }
+
+  deletar(id: number): Observable<any> {
+    return this.http.delete<any>(`${environment.uri}/escolas/${id}`);
+  }
 }
