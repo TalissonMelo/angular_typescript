@@ -18,4 +18,8 @@ export class ProfessorServico {
   listarPorId(id: number): Observable<Professor> {
     return this.http.get<Professor>(`${environment.uri}/professores/${id}`);
   }
+
+  deletar(id: number): Observable<any> {
+    return this.http.delete<any>(`${environment.uri}/professores/${id}`);
+  }
 }

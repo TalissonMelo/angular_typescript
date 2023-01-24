@@ -5,20 +5,19 @@ import { EscolaServico } from '../servico/escola.servico';
 @Component({
   selector: 'app-escola',
   templateUrl: './escola.component.html',
-  styleUrls: ['./escola.component.css']
 })
 export class EscolaComponent implements OnInit {
   public escolas: Escola[] = [];
   public nome: string = "";
   public escola: Escola = new Escola();
 
-  constructor(private service: EscolaServico) { }
+  constructor(private servico: EscolaServico) { }
 
   ngOnInit(): void {
   }
 
   listarPorNome(): void {
-    this.service.listarPorNome(this.nome).subscribe((res) => this.escolas = res);
+    this.servico.listarPorNome(this.nome).subscribe((res) => this.escolas = res);
   }
 
   preparaDelecao(escola: Escola) {
@@ -26,12 +25,11 @@ export class EscolaComponent implements OnInit {
   }
 
   deletar(id: number): void {
-    this.service.deletar(id).subscribe(() => {
+    this.servico.deletar(id).subscribe(() => {
       let index: number = this.escolas.findIndex((escola) => escola.id == id);
       this.escolas.splice(index, 1);
     }, error => {
       console.log(error);
     });
-
   }
 }

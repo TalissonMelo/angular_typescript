@@ -5,10 +5,10 @@ import { ProfessorServico } from '../servico/professor.servico';
 @Component({
   selector: 'app-professor',
   templateUrl: './professor.component.html',
-  styleUrls: ['./professor.component.css']
 })
 export class ProfessorComponent implements OnInit {
   public professores: Professor[] = [];
+  public professor: Professor = new Professor();
 
   constructor(private servico: ProfessorServico) { }
 
@@ -21,4 +21,16 @@ export class ProfessorComponent implements OnInit {
     })
   }
 
+  preparaDelecao(professor: Professor) {
+    this.professor = professor;
+  }
+
+  deletar(id: number): void {
+    this.servico.deletar(id).subscribe(() => {
+      let index: number = this.professores.findIndex((professor) => professor.id == id);
+      this.professores.splice(index, 1);
+    }, error => {
+      console.log(error);
+    });
+  }
 }
