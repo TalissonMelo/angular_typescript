@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Professor } from '../modelo/professor';
 import { ProfessorServico } from '../servico/professor.servico';
 
@@ -6,14 +6,12 @@ import { ProfessorServico } from '../servico/professor.servico';
   selector: 'app-professor',
   templateUrl: './professor.component.html',
 })
-export class ProfessorComponent implements OnInit {
+export class ProfessorComponent {
   public professores: Professor[] = [];
   public professor: Professor = new Professor();
+  public erroDelecao: string = "";
 
   constructor(private servico: ProfessorServico) { }
-
-  ngOnInit(): void {
-  }
 
   listar(): void {
     this.servico.listar().subscribe((res) => {
@@ -29,8 +27,9 @@ export class ProfessorComponent implements OnInit {
     this.servico.deletar(id).subscribe(() => {
       let index: number = this.professores.findIndex((professor) => professor.id == id);
       this.professores.splice(index, 1);
+      this.erroDelecao = "Deletado com sucesso!"
     }, error => {
-      console.log(error);
+      this.erroDelecao = error.error.descricao;
     });
   }
 }

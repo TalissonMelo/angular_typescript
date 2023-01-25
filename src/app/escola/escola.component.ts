@@ -10,6 +10,7 @@ export class EscolaComponent implements OnInit {
   public escolas: Escola[] = [];
   public nome: string = "";
   public escola: Escola = new Escola();
+  public erroDelecao: string = "";
 
   constructor(private servico: EscolaServico) { }
 
@@ -28,8 +29,9 @@ export class EscolaComponent implements OnInit {
     this.servico.deletar(id).subscribe(() => {
       let index: number = this.escolas.findIndex((escola) => escola.id == id);
       this.escolas.splice(index, 1);
+      this.erroDelecao = 'Deletado com sucesso!'
     }, error => {
-      console.log(error);
+      this.erroDelecao = error.error.descricao;
     });
   }
 }
