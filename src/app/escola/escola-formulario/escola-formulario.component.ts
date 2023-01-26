@@ -11,7 +11,7 @@ import { EscolaServico } from 'src/app/servico/escola.servico';
 export class EscolaFormularioComponent implements OnInit {
 
   public escola: Escola = new Escola();
-  public validacao: boolean = false;
+  public erroDelecao: string = "";
 
   constructor(private activatedRoute: ActivatedRoute, private servico: EscolaServico) {
   }
@@ -31,15 +31,29 @@ export class EscolaFormularioComponent implements OnInit {
 
   salvar(): void {
     if (this.ehValidoSalvar()) {
-      this.validacao = true;
+      this.servico.salvar(this.escola).subscribe(res => {
+        this.erroDelecao = "Salvo com sucesso!";
+      }, error => {
+        this.erroDelecao = error.error.descricao;
+      })
     }
   }
+
+  atualizar(): void {
+    if(this.ehValidoSalvar()) {
+      this.servico.atualizar(this.escola.id, this.escola).subscribe(res => {
+        this.erroDelecao = "Atualizado com sucesso";
+      }, error => {
+        this.erroDelecao = error.error.descricao;
+      })
+    }
+  }
+
 
   ehValidoSalvar(): boolean {
     if (this.escola.nome) {
       return true;
     }
-    this.validacao = false;
     return false;
   }
 }

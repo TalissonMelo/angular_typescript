@@ -18,7 +18,7 @@ export class EscolaComponent implements OnInit {
   }
 
   listarPorNome(): void {
-    this.servico.listarPorNome(this.nome).subscribe((res) => this.escolas = res);
+    this.servico.listar(this.nome).subscribe((res) => this.escolas = res);
   }
 
   preparaDelecao(escola: Escola) {

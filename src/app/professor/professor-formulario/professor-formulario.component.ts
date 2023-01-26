@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Observable } from 'rxjs';
-import { EscolaRoutingModule } from 'src/app/escola/escola-routing.module';
 import { Escola } from 'src/app/modelo/escola';
 import { Professor } from 'src/app/modelo/professor';
 import { EscolaServico } from 'src/app/servico/escola.servico';
@@ -30,14 +29,13 @@ export class ProfessorFormularioComponent implements OnInit {
   }
 
   listarEscolas(): void {
-    this.escolaServico.listar().subscribe((res) => {
+    this.escolaServico.listar('').subscribe((res) => {
       this.escolas = res;
     })
   }
 
   listar(id: number): void {
     this.servico.listarPorId(id).subscribe((res) => {
-      console.log(res)
       this.professor = res;
     })
   }

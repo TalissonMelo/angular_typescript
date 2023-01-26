@@ -11,11 +11,7 @@ export class EscolaServico {
 
   constructor(private http: HttpClient) { }
 
-  listar(): Observable<Escola[]> {
-    return this.http.get<Escola[]>(`${environment.uri}/escolas`);
-  }
-
-  listarPorNome(nome: string): Observable<Escola[]> {
+  listar(nome: string): Observable<Escola[]> {
     return this.http.get<Escola[]>(`${environment.uri}/escolas/nomes?nome=${nome}`);
   }
 
@@ -25,5 +21,13 @@ export class EscolaServico {
 
   deletar(id: number): Observable<any> {
     return this.http.delete<any>(`${environment.uri}/escolas/${id}`);
+  }
+
+  salvar(escola: Escola): Observable<Escola> {
+    return this.http.post<Escola>(`${environment.uri}/escolas`, escola);
+  }
+
+  atualizar(id: number, escola: Escola): Observable<Escola> {
+    return this.http.put<Escola>(`${environment.uri}/escolas/${id}`, escola);
   }
 }
