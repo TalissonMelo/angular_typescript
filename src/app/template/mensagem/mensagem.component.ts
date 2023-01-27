@@ -1,10 +1,10 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-mensagem',
   templateUrl: './mensagem.component.html',
 })
-export class MensagemComponent implements OnInit {
+export class MensagemComponent {
   public sucesso: boolean = false;
   public _erroDelecao: string = "";
 
@@ -12,10 +12,4 @@ export class MensagemComponent implements OnInit {
     this._erroDelecao = erroDelecao;
     this.sucesso  = this._erroDelecao.toUpperCase().includes('SUCESSO');
   }
-  
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
 }

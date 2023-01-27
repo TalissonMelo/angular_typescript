@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { Paginacao } from '../modelo/paginacao';
 import { Professor } from '../modelo/professor';
 
 @Injectable({
@@ -11,8 +12,8 @@ export class ProfessorServico {
 
   constructor(private http: HttpClient) { }
 
-  listar(): Observable<any> {
-    return this.http.get<any>(`${environment.uri}/professores`);
+  listar(parametros: string): Observable<Paginacao> {
+    return this.http.get<Paginacao>(`${environment.uri}/professores?${parametros}`);
   }
 
   listarPorId(id: number): Observable<Professor> {

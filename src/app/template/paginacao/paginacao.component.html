@@ -1,0 +1,11 @@
+<footer class="fixar-rodape mb-5">
+    <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+          <li class="page-item"><a class="page-link" (click)="listarPaginacao(0)">Inicio</a></li>
+          <ng-container *ngFor="let numero of lista">
+              <li class="page-item" (click)="listarPaginacao(numero)"><a class="page-link">{{ numero + 1 }}</a></li>
+          </ng-container>
+          <li class="page-item" (click)="listarPaginacao(lista.length - 1)"><a class="page-link">Fim</a></li>
+        </ul>
+    </nav>
+</footer>
