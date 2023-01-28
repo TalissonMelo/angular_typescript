@@ -11,30 +11,30 @@
         <div class="row">
             <div class="col-sm-2">
                 <label for="nome">Número</label>
-                <input type="number" class="form-control" id="numero" name="numero">
+                <input type="number" class="form-control" id="numero" name="numero" [(ngModel)]="professor.numero">
             </div>
             <div class="col-sm-10">
                 <label for="nome">Nome</label>
-                <input type="text" class="form-control" id="nome" placeholder="Digite o nome do professor" name="nome">
+                <input type="text" class="form-control" id="nome" placeholder="Digite o nome do professor" name="nome" [(ngModel)]="professor.nome">
             </div>
         </div>
         <div class="row">
             <div class="col-sm-6">
                 <label for="nome">Herói</label>
-                <input type="text" class="form-control" id="nomeHeroi" placeholder="Digite o nome do Herói" name="nomeHeroi">
+                <input type="text" class="form-control" id="nomeHeroi" placeholder="Digite o nome do Herói" name="nomeHeroi" [(ngModel)]="professor.nomeHeroi">
             </div>
             <div class="col-sm-6">
                 <label for="Estado">Escola</label>
-                <select class="form-control">
+                <select class="form-control" [ngModelOptions]="{standalone: true}" [(ngModel)]="professor.escola.id">
                     <option value="">Selecione...</option>
-                    <option>ESCOLAS</option>
+                    <option *ngFor="let escola of escolas" [ngValue]="escola.id">{{ escola.nome }}</option>
                 </select>
             </div>
         </div>
         <div class="row">
             <div class="col-sm-12">
                 <label for="nome">Individualidade</label>
-                <input type="text" class="form-control" id="individualidade" name="individualidade">
+                <input type="text" class="form-control" id="individualidade" name="individualidade" [(ngModel)]="professor.individualidade">
             </div>
         </div>
         <div class="row pt-1">
