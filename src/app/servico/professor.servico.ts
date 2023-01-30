@@ -23,4 +23,12 @@ export class ProfessorServico {
   deletar(id: number): Observable<any> {
     return this.http.delete<any>(`${environment.uri}/professores/${id}`);
   }
+
+  salvar(professor: Professor): Observable<Professor> {
+    return this.http.post<Professor>(`${environment.uri}/professores`, professor);
+  }
+
+  atualizar(id: number, professor: Professor): Observable<Professor> {
+    return this.http.put<Professor>(`${environment.uri}/professores/${id}`, professor);
+  }
 }

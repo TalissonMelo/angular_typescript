@@ -13,6 +13,7 @@ import { ProfessorServico } from 'src/app/servico/professor.servico';
 export class ProfessorFormularioComponent implements OnInit {
   public professor: Professor = new Professor();
   public escolas: Escola[] = [];
+  public erroDelecao: string = "";
 
   constructor(
     private activatedRoute: ActivatedRoute, 
@@ -38,5 +39,23 @@ export class ProfessorFormularioComponent implements OnInit {
     this.servico.listarPorId(id).subscribe((res) => {
       this.professor = res;
     })
+  }
+
+  atualizar(): void {
+    if(this.ehValidoSalvar()) {
+      this.servico.atualizar(this.professor.id, this.professor).subscribe(res => {
+        this.erroDelecao = "Atualizado com sucesso";
+      }, error => {
+        this.erroDelecao = error.error.descricao;
+      })
+    }
+  }
+
+  ehValidoSalvar(): boolean {
+    if(this.professor.nome && this.professor.nomeHeroi && this.professor.escola) {
+      return true;
+    }
+    window.alert("Preencha os campos nome, herói e escola são obrigatórios");
+    return false;
   }
 }

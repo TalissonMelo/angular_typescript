@@ -54,6 +54,7 @@ export class EscolaFormularioComponent implements OnInit {
     if (this.escola.nome) {
       return true;
     }
+    window.alert("Preencha o nome");
     return false;
   }
 }

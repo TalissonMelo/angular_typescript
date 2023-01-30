@@ -2,6 +2,7 @@
     <ol class="breadcrumb m-2">
         <li class="breadcrumb-item">{{ professor.id ? ' Professor atualização' : 'Professor cadastro' }}</li>
     </ol>
+    <app-mensagem [erroDelecao]="erroDelecao"></app-mensagem>
     <form class="mt-1">
         <div class="row">
             <div class="col-sm-2">
@@ -33,7 +34,7 @@
             </div>
         </div>
         <div class="row justify-content-between m-1">
-            <button *ngIf="professor.id" type="submit" class="btn btn-success"><i class="fa fa-save"></i> Atualizar</button>
+            <button *ngIf="professor.id" type="submit" class="btn btn-success" (click)="atualizar()"><i class="fa fa-save"></i> Atualizar</button>
             <button *ngIf="!professor.id" class="btn btn-success"><i class="fa fa-save"></i> Cadastrar</button>
             <button type="button" class="btn btn-dark ml-2" [routerLink]="['/professor']">Professores</button>
         </div>
