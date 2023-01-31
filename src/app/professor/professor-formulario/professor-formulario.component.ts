@@ -51,6 +51,17 @@ export class ProfessorFormularioComponent implements OnInit {
     }
   }
 
+  salvar(): void {
+    if(this.ehValidoSalvar()) {
+      this.servico.salvar(this.professor).subscribe(res => {
+        this.professor.numero = res.numero;
+        this.erroDelecao = "Cadastrado com sucesso";
+      }, error => {
+        this.erroDelecao = error.error.descricao;
+      })
+    }
+  }
+
   ehValidoSalvar(): boolean {
     if(this.professor.nome && this.professor.nomeHeroi && this.professor.escola) {
       return true;
