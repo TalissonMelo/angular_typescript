@@ -5,6 +5,7 @@ import { InicialComponent } from './inicial/inicial.component';
 
 const routes: Routes = [
   {path: '', component: InicialComponent},
+  { path: 'lazy-loading', loadChildren: () => import('./lazy-loading/lazy-loading.module').then(m => m.LazyLoadingModule) },
 ];
 
 @NgModule({
